@@ -1,5 +1,5 @@
 # Saga
-Saga - Course API
+Saga - Student microservice
 
 
 ## Prerequisites
