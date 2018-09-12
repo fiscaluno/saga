@@ -1,0 +1,11 @@
+language: go
+
+go:
+    - "1.9"
+
+install:
+    - go get -u github.com/kardianos/govendor
+    - govendor sync
+
+notifications:
+    email: false

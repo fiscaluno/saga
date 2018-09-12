@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:9.6
+    container_name: fiscaluno_db
+    restart: always
+    environment:
+      - POSTGRES_DB=fiscaluno
+      - POSTGRES_USER=fiscaluno
+      - POSTGRES_PASSWORD=fiscaluno
+    ports:
+      - 5433:5432
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saga
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "10"
+    environment:
+      - PORT=5000
+      - DB=postgres
+      - DATABASE_URL=host=postgres user=fiscaluno password=fiscaluno dbname=fiscaluno sslmode=disable
+    ports:
+      - 8888:5000
+    depends_on:
+      - postgres
+    external_links:
+      - fiscaluno_db:postgres
+    command: go run app.go
