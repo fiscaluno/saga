@@ -6,19 +6,8 @@ import (
 
 // Student is a Entity
 type Student struct {
-	Name       string     `json:"student_name"`
-	UserID     int        `json:"user_id"`
-	CourseInfo CourseInfo `json:"course_info"`
-}
-
-// CourseInfo ...
-type CourseInfo struct {
-	CourseID            int    `json:"course_id"`
-	ReviewID            int    `json:"review_id"`
-	InstitutionID       int    `json:"institution_id"`
-	Period              string `json:"period"`
-	Semester            int    `json:"semester"`
-	MonthlyPaymentValue int    `json:"monthly_payment_value"`
+	Name   string `json:"student_name"`
+	UserID int    `json:"user_id"`
 }
 
 // Entity is a course

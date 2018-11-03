@@ -9,13 +9,10 @@ func Migrate() {
 
 	entity := new(Entity)
 
-	entity.Name = "JC"
-	entity.CourseInfo = CourseInfo{
-		CourseID: 1,
-	}
-
+	entity.Name = "Julio Cesar"
+	entity.UserID = 1
 	// Migrate the schema
-	db.AutoMigrate(&Entity{})
+	db.AutoMigrate(&entity)
 
 	// Create
 	db.Create(entity)
@@ -26,8 +23,8 @@ func Migrate() {
 	// db.First(&entity, "name = ?", "JC") // find entity with name JC
 
 	// Update - update entity's Name to SI
-	db.Model(&entity).Update("Name", "SI")
+	// db.Model(&entity).Update("Name", "SI")
 
 	// Delete - delete entity
-	db.Delete(&entity)
+	// db.Delete(&entity)
 }
